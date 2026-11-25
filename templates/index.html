@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Financial Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+ 
+    <main class="page">
+
+    <!-- Header -->
+    <header class="brand">
+        <div class="brand-mark">⬡</div>
+        <span>Financial<br>Tracker</span>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <div class="intro">
+            <p class="eyebrow">YOUR MONEY, MADE CLEAR</p>
+
+            <h1>Hi! Vibhu</h1>
+
+            <p class="subtitle">
+                What are your expenses today?
+            </p>
+
+            <button class="learn-button" id="learnMore">
+                Learn more
+            </button>
+        </div>
+
+        <!-- Expense Chart -->
+        <div class="chart-card">
+            <div class="chart-wrap">
+                <canvas id="expenseChart"></canvas>
+            </div>
+
+            <p class="chart-caption">Expense breakdown</p>
+        </div>
+
+    </section>
+
+    <!-- Expenses Section -->
+    <section class="expenses-section">
+
+        <div class="section-heading">
+
+            <div>
+                <p class="eyebrow">DAILY OVERVIEW</p>
+                <h2>Today's expenses</h2>
+            </div>
+
+            <div class="total-box">
+                <span>Total spent</span>
+                <strong id="totalSpent">₹0.00</strong>
+            </div>
+
+        </div>
+
+        <!-- Expense Table -->
+        <div class="table-wrap">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Date and Time</th>
+                        <th>Category</th>
+                        <th>Money spent</th>
+                        <th>Items</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody id="expenseRows">
+                    <!-- Expense records will be loaded from the database -->
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+    <!-- Bottom Section -->
+    <section class="bottom-section">
+
+        <div class="tips">
+
+            <p class="eyebrow">A LITTLE FINANCIAL WISDOM</p>
+
+            <h2>Tips for you</h2>
+
+            <p id="tipText">
+                Small savings today can make a big difference tomorrow.
+            </p>
+
+            <button class="text-button" id="newTip">
+                Show another tip ↗
+            </button>
+
+        </div>
+
+        <!-- Add Expense Button -->
+        <button class="add-expense" id="openModal">
+
+            <b>+</b>
+
+        </button>
+
+    </section>
+
+</main>
+
+<!-- Add Expense Modal -->
+<dialog id="expenseDialog">
+
+    <form id="expenseForm"  method="POST">
+
+        <div class="modal-heading">
+
+            <div>
+                <p class="eyebrow">DAILY TRACKER</p>
+                <h2 id="expenseModalTitle">Add an expense</h2>
+            </div>
+
+            <button type="button" class="close-button" id="closeModal">
+                ×
+            </button>
+
+        </div>
+
+        <div class="form-grid">
+
+            <label>
+                Amount (₹)
+                <input
+                    type="number"
+                    name="amount"
+                    min="1"
+                    placeholder="0"
+                    required
+                >
+            </label>
+
+            <label>
+                Category
+
+                <select name="category_id" required>
+                    <option value="" disabled selected>Select category</option>
+                    <option value="1">Food</option>
+                    <option value="2">Transport</option>
+                    <option value="3">Shopping</option>
+                    <option value="4">Bills</option>
+                    <option value="5">Health</option>
+                    <option value="6">Entertainment</option>
+                    <option value="7">Miscellaneous</option>
+                </select>
+
+            </label>
+
+        </div>
+
+        <label>
+            Note
+            <input
+                type="text"
+                name="notes"
+                placeholder="e.g. Milk"
+                maxlength="255"
+            >
+        </label>
+
+        <button class="submit-button" type="submit" id="submitExpenseButton">
+            Save expense
+        </button>
+
+    </form>
+
+</dialog>
+ 
+    <footer><p>---------</p></footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
