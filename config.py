@@ -4,7 +4,7 @@ class Config:
 
     SQLALCHEMY_DATABASE_URI = os.environ.get(
         "DATABASE_URL"
-    ) or "mysql+pymysql://flask_user:Flask#785@localhost/financial_tracker"
+    ) or "mysql+pymysql://flask_user:YOURPASSWORD@localhost/financial_tracker"
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
