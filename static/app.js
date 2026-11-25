@@ -1,6 +1,4 @@
-// ==========================================
-// 1. DOM ELEMENTS
-// ==========================================
+// DOM ELEMENTS
 
 const dialog = document.getElementById("expenseDialog");
 const expenseForm = document.getElementById("expenseForm");
@@ -13,10 +11,7 @@ const submitButton = document.getElementById("submitExpenseButton");
 // null means we are adding a new expense.
 let editingExpenseId = null;
 
-
-// ==========================================
-// 2. CATEGORY COLORS
-// ==========================================
+// CATEGORY COLORS
 
 const categoryColors = {
     Food: "#ef8d75",
@@ -28,17 +23,11 @@ const categoryColors = {
     Miscellaneous: "#8a9bb8"
 };
 
-
-// ==========================================
-// 3. EXPENSE DATA
-// ==========================================
+// EXPENSE DATA
 
 let expenses = [];
 
-
-// ==========================================
-// 4. CREATE EXPENSE CHART
-// ==========================================
+// CREATE EXPENSE CHART
 
 const chart = new Chart(
     document.getElementById("expenseChart"),
@@ -77,10 +66,7 @@ const chart = new Chart(
     }
 );
 
-
-// ==========================================
-// 5. FETCH EXPENSES FROM DATABASE
-// ==========================================
+// FETCH EXPENSES FROM DATABASE
 
 async function loadExpenses() {
 
@@ -108,10 +94,7 @@ async function loadExpenses() {
 
 }
 
-
-// ==========================================
-// 6. DISPLAY EXPENSES IN TABLE
-// ==========================================
+// DISPLAY EXPENSES IN TABLE
 
 function renderExpenses() {
 
@@ -200,10 +183,7 @@ function renderExpenses() {
 
 }
 
-
-// ==========================================
-// 7. UPDATE EXPENSE CHART
-// ==========================================
+// UPDATE EXPENSE CHART
 
 function updateChart() {
 
@@ -236,10 +216,7 @@ function updateChart() {
 
 }
 
-
-// ==========================================
-// 8. OPEN MODAL FOR ADDING EXPENSE
-// ==========================================
+// OPEN MODAL FOR ADDING EXPENSE
 
 function openAddModal() {
 
@@ -255,10 +232,7 @@ function openAddModal() {
 
 }
 
-
-// ==========================================
-// 9. OPEN MODAL FOR UPDATING EXPENSE
-// ==========================================
+// OPEN MODAL FOR UPDATING EXPENSE
 
 function openEditModal(expense) {
 
@@ -282,10 +256,7 @@ function openEditModal(expense) {
 
 }
 
-
-// ==========================================
-// 10. SAVE EXPENSE (ADD OR UPDATE)
-// ==========================================
+// SAVE EXPENSE (ADD OR UPDATE)
 
 async function saveExpense(data) {
 
@@ -353,10 +324,7 @@ async function saveExpense(data) {
 
 }
 
-
-// ==========================================
-// 11. DELETE EXPENSE
-// ==========================================
+// DELETE EXPENSE
 
 async function deleteExpense(id) {
 
@@ -398,10 +366,7 @@ async function deleteExpense(id) {
 
 }
 
-
-// ==========================================
-// 12. MODAL FUNCTIONALITY
-// ==========================================
+// MODAL FUNCTIONALITY
 
 
 // Open Add Expense Modal
@@ -439,10 +404,7 @@ dialog.addEventListener("close", () => {
 
 });
 
-
-// ==========================================
-// 13. EXPENSE FORM SUBMISSION
-// ==========================================
+// EXPENSE FORM SUBMISSION
 
 expenseForm.addEventListener("submit", function(event) {
 
@@ -465,10 +427,7 @@ expenseForm.addEventListener("submit", function(event) {
 
 });
 
-
-// ==========================================
-// 14. FINANCIAL TIPS
-// ==========================================
+// FINANCIAL TIPS
 
 let tip_no = 0;
 
@@ -497,10 +456,7 @@ document.getElementById("newTip").addEventListener(
     }
 );
 
-
-// ==========================================
-// 15. LEARN MORE BUTTON
-// ==========================================
+//  LEARN MORE BUTTON
 
 document.getElementById("learnMore").addEventListener(
     "click",
@@ -514,9 +470,6 @@ document.getElementById("learnMore").addEventListener(
     }
 );
 
-
-// ==========================================
-// 16. INITIALIZE APPLICATION
-// ==========================================
+// INITIALIZE APPLICATION
 
 loadExpenses();
